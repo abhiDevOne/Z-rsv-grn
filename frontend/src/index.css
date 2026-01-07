@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Dark Mode Overrides for React Quill */
+.dark .ql-toolbar {
+  background-color: #374151; /* gray-700 */
+  border-color: #4b5563 !important; /* gray-600 */
+  color: white;
+}
+
+.dark .ql-container {
+  background-color: #1f2937; /* gray-800 */
+  border-color: #4b5563 !important;
+  color: white;
+}
+
+.dark .ql-stroke {
+  stroke: #e5e7eb !important; /* light gray for icons */
+}
+
+.dark .ql-picker {
+  color: #e5e7eb !important;
+}
+
+/* Fix Input Fields in Dark Mode */
+.dark input,
+.dark select,
+.dark textarea {
+  background-color: #111827; /* gray-900 */
+  border-color: #374151;
+  color: white;
+}

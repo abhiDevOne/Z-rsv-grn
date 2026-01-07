@@ -1,0 +1,45 @@
+# --- General / OS ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+.eslintcache
+
+# --- Dependency Folders ---
+node_modules/
+**/node_modules/
+
+# --- Environment & Secrets (CRITICAL) ---
+.env
+.env.local
+.env.*.local
+**/.env
+**/.env.*
+
+# --- Backend Specific (Multer/Cloudinary/Logs) ---
+backend/logs/
+backend/*.log
+backend/temp/
+backend/uploads/
+backend/public/uploads/
+# Database files (Mongoose/Local DBs)
+*.db
+*.sqlite
+
+# --- Frontend Specific (Vite/Builds) ---
+frontend/dist/
+frontend/dist-ssr/
+frontend/coverage/
+frontend/*.timestamp-*
+# Vite/React local envs
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.production.local
+
+# --- Logs ---
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*

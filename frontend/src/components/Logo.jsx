@@ -1,0 +1,51 @@
+import React from "react";
+
+const Logo = ({
+  className = "w-8 h-8",
+  textSize = "text-xl",
+  showText = true,
+}) => {
+  return (
+    <div className="flex items-center gap-2">
+      {/* The Icon */}
+      <svg
+        className={className}
+        viewBox="0 0 512 512"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <linearGradient id="logo_grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#2563EB" /> {/* Blue-600 */}
+            <stop offset="100%" stopColor="#9333EA" /> {/* Purple-600 */}
+          </linearGradient>
+        </defs>
+        {/* Background Shape */}
+        <rect width="512" height="512" rx="120" fill="url(#logo_grad)" />
+
+        <path
+          d="M362.6 192.8L246 342.3c-5.3 6.8-15.6 7.3-21.6 1.1l-68.5-70.6c-5.5-5.7-5-14.8 1.1-19.9l19.8-16.5c5.8-4.8 14.3-4.5 19.8 0.7l37.2 35 88.6-107.4c5.1-6.2 14.5-7.1 20.8-2.1l20.4 16.2c6.9 5.5 7.9 15.6 2.4 22.3z"
+          fill="white"
+        />
+
+        {/* Swish Accent */}
+        <path
+          d="M144 256c0-61.9 50.1-112 112-112 18.3 0 35.6 4.4 50.9 12.2 4.6 2.4 10.3 1.3 13.7-2.7l11.4-13.4c4.1-4.8 3.5-12.1-1.4-16.2C302.3 103.4 279.9 96 256 96 167.6 96 96 167.6 96 256c0 37.9 13.2 72.8 35.2 100.4 4.3 5.4 12.3 5.7 17.1 0.7l13.6-14.2c4.2-4.4 3.9-11.4-0.6-15.4C149.3 309.8 144 283.7 144 256z"
+          fill="white"
+          fillOpacity="0.4"
+        />
+      </svg>
+
+      {/* The Text */}
+      {showText && (
+        <span
+          className={`${textSize} font-bold text-gray-900 dark:text-white tracking-tight`}
+        >
+          Resolve
+        </span>
+      )}
+    </div>
+  );
+};
+
+export default Logo;
