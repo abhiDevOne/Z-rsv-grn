@@ -87,8 +87,10 @@ export const logoutUser = (req, res) => {
   res.cookie("jwt", "", {
     httpOnly: true,
     expires: new Date(0),
-    secure: process.env.NODE_ENV === "production", // Must be true in production
-    sameSite: process.env.NODE_ENV === "production" ? "none" : "lax", // Must be "none" for cross-site
+    secure: true,
+    sameSite: "none",
+    // secure: process.env.NODE_ENV === "production", // Must be true in production
+    // sameSite: process.env.NODE_ENV === "production" ? "none" : "lax", // Must be "none" for cross-site
   });
   res.status(200).json({ message: "🟢 Logged out successfully." });
 };
