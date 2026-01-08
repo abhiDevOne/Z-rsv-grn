@@ -87,6 +87,8 @@ export const logoutUser = (req, res) => {
   res.cookie("jwt", "", {
     httpOnly: true,
     expires: new Date(0),
+    secure: process.env.NODE_ENV === "production", // Must be true in production
+    sameSite: process.env.NODE_ENV === "production" ? "none" : "lax", // Must be "none" for cross-site
   });
   res.status(200).json({ message: "🟢 Logged out successfully." });
 };
@@ -114,11 +116,9 @@ export const updateProfile = async (req, res) => {
       if (req.body.password) {
         // If changing password, require current password for security
         if (!req.body.currentPassword) {
-          return res
-            .status(400)
-            .json({
-              message: "🟠 Current password is required to set a new one.",
-            });
+          return res.status(400).json({
+            message: "🟠 Current password is required to set a new one.",
+          });
         }
 
         // Verify current password

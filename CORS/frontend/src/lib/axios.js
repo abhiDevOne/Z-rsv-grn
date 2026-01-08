@@ -1,9 +1,8 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  // Use VITE_API_URL from environment variables, fallback to local for dev
   baseURL: import.meta.env.VITE_API_URL || "http://localhost:5000/api",
-  withCredentials: true, // IMPORTANT: Allows sending cookies to Render
+  withCredentials: true, // IMPORTANT: Sends cookies with requests
 });
 
 export default axiosInstance;

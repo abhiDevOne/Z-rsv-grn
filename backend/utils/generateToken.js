@@ -7,9 +7,9 @@ const generateToken = (res, userId) => {
 
   // Set JWT as an HTTP-Only cookie
   res.cookie("jwt", token, {
-    httpOnly: true, // Prevents client-side JS from reading the cookie (Security)
-    secure: process.env.NODE_ENV !== "development", // Use secure cookies in production (HTTPS)
-    sameSite: "strict", // CSRF protection
+    httpOnly: true, // Prevents client-side JS from reading the cookie (Security) & Security: Prevents XSS
+    secure: process.env.NODE_ENV === "production", // Required for SameSite: none & Must be true for 'none' to work
+    sameSite: process.env.NODE_ENV === "production" ? "none" : "lax", // Allows cross-site for Vercel -> Render
     maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
   });
 };

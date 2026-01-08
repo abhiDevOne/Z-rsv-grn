@@ -26,7 +26,7 @@ app.use(cookieParser()); // Parse cookies
 // We strictly allow only the frontend URL to send requests
 app.use(
   cors({
-    origin: process.env.CLIENT_URL, // This must be Vercel URL or prior to deployment... e.g. http://localhost:5173
+    origin: process.env.CLIENT_URL, // This must be Vercel URL
     credentials: true, // Allow cookies to be sent
     methods: ["GET", "POST", "PUT", "DELETE"],
   })
